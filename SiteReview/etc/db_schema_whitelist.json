@@ -1,0 +1,18 @@
+{
+    "site_review": {
+        "column": {
+            "review_id": true,
+            "created_at": true,
+            "review_title": true,
+            "review_text": true,
+            "pros": true,
+            "cons": true
+        },
+        "index": {
+            "SITE_REVIEW_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

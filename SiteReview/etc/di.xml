@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Lendiel\SiteReview\Api\Data\SiteReviewInterface"
+                type="Lendiel\SiteReview\Model\SiteReview"/>
+    <preference for="Lendiel\SiteReview\Api\SiteReviewRepositoryInterface"
+                type="Lendiel\SiteReview\Model\SiteReviewRepository"/>
+    <preference for="Lendiel\SiteReview\Api\Data\SiteReviewSearchResultsInterface"
+                type="Lendiel\SiteReview\Model\SiteReviewSearchResults"/>
+    <virtualType name="SiteReview" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="resourceModel" xsi:type="string">
+                Lendiel\SiteReview\Model\ResourceModel\SiteReview\Collection
+            </argument>
+            <argument name="mainTable" xsi:type="string">site_review</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument xsi:type="array">
+                <item xsi:type="string" name="site_review_listing_data_source">SiteReview</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

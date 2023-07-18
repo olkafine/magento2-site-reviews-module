@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Lendiel_SiteReview::listing" sortOrder="10" title="Site Reviews" module="Lendiel_SiteReview"
+             parent="Lendiel_Core::core" resource="Lendiel_SiteReview::listing" translate="title"
+             action="sitereview/index/index"/>
+    </menu>
+</config>

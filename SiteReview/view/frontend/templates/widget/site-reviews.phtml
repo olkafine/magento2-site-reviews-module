@@ -1,0 +1,26 @@
+<?php
+declare(strict_types=1);
+
+use Laminas\Escaper\Escaper;
+use Lendiel\SiteReview\Block\Widget\SiteReviews;
+
+/**
+ * @var Escaper $escaper
+ * @var SiteReviews $block
+ */
+
+$siteReviews = $block->getSiteReviews();
+?>
+
+<div class="site-reviews-container">
+    <?php foreach ($siteReviews as $siteReview) { ?>
+    <div id="site-review<?= '-' . $siteReview->getReviewId() ?>" class="site-review">
+        <h2 class="site-review-title"><?= $escaper->escapeHtml($siteReview->getReviewTitle()) ?></h2>
+        <p class="site-review-text"><?= $escaper->escapeHtml($siteReview->getReviewText()) ?></p>
+        <p class="site-review-cons label"><?= __($escaper->escapeHtml('Pros:')) ?></p>
+        <p class="site-review-cons text"><?= $escaper->escapeHtml($siteReview->getPros()) ?></p>
+        <p class="site-review-pros label"><?= __($escaper->escapeHtml('Cons:')) ?></p>
+        <p class="site-review-pros text"><?= $escaper->escapeHtml($siteReview->getCons()) ?></p>
+    </div>
+    <?php } ?>
+</div>

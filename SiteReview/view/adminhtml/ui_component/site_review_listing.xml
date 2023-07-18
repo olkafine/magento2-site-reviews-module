@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">site_review_listing.site_review_listing_data_source</item>
+            <item name="deps" xsi:type="string">site_review_listing.site_review_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <spinner>site_review_listing_columns</spinner>
+        <deps>
+            <dep>site_review_listing.site_review_listing_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="site_review_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">review_id</param>
+            </storageConfig>
+            <updateUrl path="mui/index/render"/>
+        </settings>
+        <aclResource>Lendiel_SiteReview::listing</aclResource>
+        <dataProvider class="Lendiel\SiteReview\Ui\Component\Listing\SiteReview" name="site_review_listing_data_source">
+            <settings>
+                <requestFieldName>review_id</requestFieldName>
+                <primaryFieldName>review_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        <filterSearch name="fulltext"/>
+        <filters name="listing_filters"/>
+        <paging name="listing_paging"/>
+    </listingToolbar>
+    <columns name="site_review_listing_columns">
+        <column name="review_id" sortOrder="10">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">Id</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="review_title" sortOrder="20">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="review_text" sortOrder="30">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Review</label>
+            </settings>
+        </column>
+        <column name="pros" sortOrder="40">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Pros</label>
+            </settings>
+        </column>
+        <column name="cons" sortOrder="50">
+            <settings>
+                <filter>text</filter>
+                <label translate="true">Cons</label>
+            </settings>
+        </column>
+        <column name="created_at" class="Magento\Ui\Component\Listing\Columns\Date"
+                component="Magento_Ui/js/grid/columns/date" sortOrder="60">
+            <settings>
+                <filter>dateRange</filter>
+                <dataType>date</dataType>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+    </columns>
+</listing>

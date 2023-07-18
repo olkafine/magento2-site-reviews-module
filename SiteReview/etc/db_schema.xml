@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="site_review" resource="default" engine="innodb" comment="Site Reviews">
+        <column xsi:type="bigint" name="review_id" unsigned="true" nullable="false" identity="true"
+                comment="Review ID"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Review create date"/>
+        <column xsi:type="varchar" name="review_title" nullable="false" length="255" comment="Review title"/>
+        <column xsi:type="text" name="review_text" nullable="false" comment="Review text"/>
+        <column xsi:type="text" name="pros" nullable="false" comment="Review pros"/>
+        <column xsi:type="text" name="cons" nullable="false" comment="Review cons"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="review_id"/>
+        </constraint>
+        <index referenceId="SITE_REVIEW_ID" indexType="btree">
+            <column name="review_id"/>
+        </index>
+    </table>
+</schema>

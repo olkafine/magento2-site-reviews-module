@@ -1,0 +1,47 @@
+<?php
+declare(strict_types=1);
+
+use Laminas\Escaper\Escaper;
+
+/** @var Escaper $escaper */
+?>
+<form class="site-review-form" id="site-review-form" method="post" data-mage-init='{"validation": {}}'>
+    <fieldset class="fieldset site-review-fieldset">
+        <div class="field site-review-title required">
+            <label for="site-review-title" class="label"><span><?= __($escaper->escapeHtml('Title')) ?></span></label>
+            <div class="control">
+                <input type="text" name="site-review-title" id="site-review-title" class="input-text" data-validate='{"required":true, "maxlength":225, "validate-no-empty":true}'/>
+            </div>
+        </div>
+        <div class="field site-review-text required">
+            <label for="site-review-text" class="label"><span><?= __($escaper->escapeHtml('Review')) ?></span></label>
+            <div class="control">
+                <textarea name="site-review-text" id="site-review-text" cols="5" rows="3" data-validate='{"required":true, "validate-no-empty":true}'></textarea>
+            </div>
+        </div>
+        <div class="field site-pros required">
+            <label for="site-pros" class="label"><span><?= __($escaper->escapeHtml('Pros')) ?></span></label>
+            <div class="control">
+                <textarea name="site-pros" id="site-pros" cols="5" rows="3" data-validate='{"required":true, "validate-no-empty":true}'></textarea>
+            </div>
+        </div>
+        <div class="field site-cons required">
+            <label for="site-cons" class="label"><span><?= __($escaper->escapeHtml('Cons')) ?></span></label>
+            <div class="control">
+                <textarea name="site-cons" id="site-cons" cols="5" rows="3" data-validate='{"required":true, "validate-no-empty":true}'></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar site-review-form-actions">
+        <div class="primary actions-primary">
+            <button type="submit" class="action submit primary"><span><?= __($escaper->escapeHtml('Submit')) ?></span></button>
+        </div>
+    </div>
+</form>
+<script type="text/x-magento-init">
+{
+    "#site-review-form": {
+        "Lendiel_SiteReview/js/submit-site-review": {}
+    }
+}
+</script>
